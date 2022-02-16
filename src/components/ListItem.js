@@ -1,7 +1,7 @@
 import React from "react";
-import "./stylesheet/ListItem.css";
-import author from "./assets/images/author.png";
-import sad from "./assets/images/sad.png";
+import "../stylesheet/ListItem.css";
+import author from "../assets/images/author.png";
+import sad from "../assets/images/sad.png";
 
 const ListItem = (props) => {
   return (

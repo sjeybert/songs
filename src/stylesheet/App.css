@@ -1,0 +1,16 @@
+body 
+{
+    margin: 0;
+    padding: 0 ;
+}
+*{
+    box-sizing: border-box;
+}
+.main-container
+{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 60px;
+}

@@ -1,0 +1,30 @@
+.top-bar-wrapper
+{
+    background: #263238;
+    height: 40px ;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.top-bar-wrapper .logo{
+    width: 25px;
+    height: 25px;
+    align-self: center;
+    
+}
+.top-bar-wrapper .col-3 {
+    display: flex;
+    width: 5%;
+    justify-content: center;
+    gap: 10px;
+}
+.top-bar-wrapper .col-3 > div {
+    align-self: center;
+}
+.top-bar-wrapper .col-3 img{
+    width: 25px;
+    height: 25px;
+}

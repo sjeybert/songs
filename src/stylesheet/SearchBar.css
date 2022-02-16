@@ -1,0 +1,25 @@
+.SearchBar
+{
+    align-self: center;
+    width: 50%;
+}
+.SearchBar .search-box {
+    display: flex;
+    gap: 5px;
+    height: 25px;
+    background: #fff;
+    padding: 2px 5px;
+}
+.SearchBar .search-input:focus{
+    outline: none;
+}
+
+.SearchBar .search-input {
+    width: 100%;
+    border: none;
+}
+.SearchBar .search-icon {
+    width: 20px;
+    height: 20px;
+    align-self: center;
+}
