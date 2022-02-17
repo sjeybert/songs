@@ -1,6 +1,6 @@
 import React from "react";
 import ListItem from "./ListItem";
-import TopBar from "./TopBar" ;
+import TopBar from "./TopBar";
 import "../stylesheet/App.css";
 
 class App extends React.Component {
@@ -47,28 +47,29 @@ class App extends React.Component {
     return (
       <div>
         <TopBar />
-          <div className="main-container">
-            <ListItem data={this.temp1} />
-            <ListItem data={this.temp2} />
-            <ListItem data={this.temp3} />
-            <ListItem data={this.temp4} />
-            <ListItem data={this.temp1} />
-            <ListItem data={this.temp2} />
-            <ListItem data={this.temp3} />
-            <ListItem data={this.temp4} />
-            <ListItem data={this.temp1} />
-            <ListItem data={this.temp2} />
-            <ListItem data={this.temp3} />
-            <ListItem data={this.temp4} />
-            <ListItem data={this.temp1} />
-            <ListItem data={this.temp2} />
-            <ListItem data={this.temp3} />
-            <ListItem data={this.temp4} />
-            <ListItem data={this.temp1} />
-            <ListItem data={this.temp2} />
-            <ListItem data={this.temp3} />
-            <ListItem data={this.temp4} />
+        <div className="main-container">
+          <ListItem data={this.temp1} />
+          <ListItem data={this.temp2} />
+          <ListItem data={this.temp3} />
+          <ListItem data={this.temp4} />
+          <ListItem data={this.temp1} />
+          <ListItem data={this.temp2} />
+          <ListItem data={this.temp3} />
+          <ListItem data={this.temp4} />
+          <ListItem data={this.temp1} />
+          <ListItem data={this.temp2} />
+          <ListItem data={this.temp3} />
+          <ListItem data={this.temp4} />
+          <ListItem data={this.temp1} />
+          <ListItem data={this.temp2} />
+          <ListItem data={this.temp3} />
+          <ListItem data={this.temp4} />
+          <ListItem data={this.temp1} />
+          <ListItem data={this.temp2} />
+          <ListItem data={this.temp3} />
+          <ListItem data={this.temp4} />
         </div>
+        <div id="overlay"></div>
       </div>
     );
   }

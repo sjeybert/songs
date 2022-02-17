@@ -1,6 +1,6 @@
 import React from "react";
 import "../stylesheet/ListItem.css";
-import author from "../assets/images/author.png";
+import NonFavourite from "../assets/images/heart.png";
 import sad from "../assets/images/sad.png";
 
 const ListItem = (props) => {
@@ -11,7 +11,7 @@ const ListItem = (props) => {
       </div>
       <div className="row-2">{props.data.pallavi}</div>
       <div className="row-3">
-        <img className="author" src={author} />
+        <img className="favourite-section" src={NonFavourite} />
         <span>{props.data.beat}</span>
         <span>{props.data.chord}</span>
         <img className="genre" src={sad} />

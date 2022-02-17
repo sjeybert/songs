@@ -1,25 +1,92 @@
-.SearchBar
-{
-    align-self: center;
-    width: 50%;
+.SearchBar {
+  align-self: center;
+  width: 50%;
+  position: relative;
 }
 .SearchBar .search-box {
-    display: flex;
-    gap: 5px;
-    height: 25px;
-    background: #fff;
-    padding: 2px 5px;
+  display: flex;
+  gap: 5px;
+  height: 35px;
+  background: #fff;
+  padding: 0 10px;
 }
-.SearchBar .search-input:focus{
-    outline: none;
+.SearchBar .search-input:focus {
+  outline: none;
 }
 
 .SearchBar .search-input {
-    width: 100%;
-    border: none;
+  width: 100%;
+  border: none;
 }
 .SearchBar .search-icon {
-    width: 20px;
-    height: 20px;
-    align-self: center;
+  width: 20px;
+  height: 20px;
+  align-self: center;
+}
+.SearchBar .close {
+  width: 10px;
+  height: 10px;
+  align-self: center;
+}
+.SearchBar .search-match-container {
+  display: none;
+  position: absolute;
+  border: solid 1px #eceff1;
+  border-top: solid 1px #253237;
+  width: 100%;
+  background: #fff;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 0 1px 1px 0 #eeeeee;
+}
+.SearchBar ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.SearchBar .filter {
+  display: flex;
+  gap: 10px;
+  margin: 10px;
+}
+.SearchBar .filter > div {
+  border: solid 1px #bdbdbd;
+  padding: 3px 15px;
+  border-radius: 15px;
+}
+.SearchBar .filter .active {
+  border: solid 1px #29b6f6;
+  background: #e1f5fe;
+}
+.SearchBar li {
+  border-bottom: dotted 1px #eee;
+  padding: 12px;
+  font-size: 14px;
+  display: flex;
+  gap: 15px;
+}
+
+.SearchBar li:last-child {
+  border: none;
+}
+.SearchBar li:hover {
+  background: #e3f2fd;
+}
+.SearchBar .match-data {
+  align-self: center;
+}
+.SearchBar .match-data .title {
+  font-size: 14px;
+}
+.SearchBar .match-data .match-string {
+  font-size: 10px;
+  padding-top: 2px;
+}
+.SearchBar li img {
+  width: 25px;
+  height: 25px;
+  align-self: center;
 }
