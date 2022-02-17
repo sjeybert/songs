@@ -1,10 +1,29 @@
-import React from "react";
+import React,{useState,useRef} from "react";
 import ListItem from "./ListItem";
 import TopBar from "./TopBar";
 import "../stylesheet/App.css";
 
-class App extends React.Component {
-  temp1 = {
+const App = () => {
+  const overlay = useRef();
+  const mainContainerWrapper = useRef();
+  const [freeze,freezeController] = useState(false);
+  const freezeHandler = (freeze) => {
+    if(freeze)
+    {
+    overlay.current.classList.remove("hidden");
+    mainContainerWrapper.current.classList.add("no-scroll");
+    }
+    else
+    {
+      overlay.current.classList.add("hidden");
+      // if(mainContainerWrapper.current.classList.contains("no-scroll"))
+      // {
+      mainContainerWrapper.current.classList.remove("no-scroll");
+      // }
+    }
+  };
+  
+ const temp1 = {
     beat: "4/4",
     title: "இல்லாமல் செய்வேன் என்று சொன்னோர் முன்",
     pallavi: `இல்லாமல் செய்வேன் என்று சொன்னோர் முன்
@@ -13,7 +32,7 @@ class App extends React.Component {
     `,
     chord: "F maj",
   };
-  temp2 = {
+  const temp2 = {
     beat: "3/4",
     title: "அசாத்தியங்கள் சாத்தியமே",
     pallavi: `அசாத்தியங்கள் சாத்தியமே\n
@@ -23,7 +42,7 @@ class App extends React.Component {
     `,
     chord: "C maj",
   };
-  temp3 = {
+  const temp3 = {
     beat: "2/4",
     title: "சொன்ன சொல்லை காப்பாற்றும் தெய்வம்",
     pallavi: `சொன்ன சொல்லை காப்பாற்றும் தெய்வம்\n
@@ -33,7 +52,7 @@ class App extends React.Component {
     `,
     chord: "C maj",
   };
-  temp4 = {
+  const temp4 = {
     beat: "2/4",
     title: "எனக்கா இத்தன கிருபை",
     pallavi: `எனக்கா இத்தன கிருபை\n
@@ -43,36 +62,36 @@ class App extends React.Component {
     `,
     chord: "C maj",
   };
-  render() {
+
     return (
-      <div>
-        <TopBar />
+      <div ref={mainContainerWrapper} className="main-container-wrapper">
+        <TopBar freezeHandler={freezeHandler} />
         <div className="main-container">
-          <ListItem data={this.temp1} />
-          <ListItem data={this.temp2} />
-          <ListItem data={this.temp3} />
-          <ListItem data={this.temp4} />
-          <ListItem data={this.temp1} />
-          <ListItem data={this.temp2} />
-          <ListItem data={this.temp3} />
-          <ListItem data={this.temp4} />
-          <ListItem data={this.temp1} />
-          <ListItem data={this.temp2} />
-          <ListItem data={this.temp3} />
-          <ListItem data={this.temp4} />
-          <ListItem data={this.temp1} />
-          <ListItem data={this.temp2} />
-          <ListItem data={this.temp3} />
-          <ListItem data={this.temp4} />
-          <ListItem data={this.temp1} />
-          <ListItem data={this.temp2} />
-          <ListItem data={this.temp3} />
-          <ListItem data={this.temp4} />
+          <ListItem data={temp1} />
+          <ListItem data={temp2} />
+          <ListItem data={temp3} />
+          <ListItem data={temp4} />
+          <ListItem data={temp1} />
+          <ListItem data={temp2} />
+          <ListItem data={temp3} />
+          <ListItem data={temp4} />
+          <ListItem data={temp1} />
+          <ListItem data={temp2} />
+          <ListItem data={temp3} />
+          <ListItem data={temp4} />
+          <ListItem data={temp1} />
+          <ListItem data={temp2} />
+          <ListItem data={temp3} />
+          <ListItem data={temp4} />
+          <ListItem data={temp1} />
+          <ListItem data={temp2} />
+          <ListItem data={temp3} />
+          <ListItem data={temp4} />
         </div>
-        <div id="overlay"></div>
+        <div ref={overlay} className="hidden" id="overlay"></div>
       </div>
     );
   }
-}
+
 
 export default App;

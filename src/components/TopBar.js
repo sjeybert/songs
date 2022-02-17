@@ -5,11 +5,11 @@ import SearchBar from "./SearchBar";
 import Profile from "./Profile";
 import add from "../assets/images/plus.png";
 
-const TopBar = () => {
+const TopBar = (props) => {
     return (
     <div className="top-bar-wrapper">
         <img className="logo" src={logo} />
-        <SearchBar />
+        <SearchBar freezeHandler={props.freezeHandler} />
         <div className="col-3">
             <div>
                 <img src={add} />
