@@ -11,6 +11,7 @@ body {
 }
 .main-container-wrapper{
   position: relative;
+  outline: none;
 }
 .main-container {
   display: flex;
@@ -18,6 +19,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 60px;
+  
 }
 #overlay {
   position: fixed;

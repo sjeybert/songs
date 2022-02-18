@@ -1,29 +1,40 @@
-import React,{useState,useRef} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ListItem from "./ListItem";
 import TopBar from "./TopBar";
 import "../stylesheet/App.css";
 
 const App = () => {
-  const overlay = useRef();
+  // Root Container -> To Add Autofocus after page rendering
   const mainContainerWrapper = useRef();
-  const [freeze,freezeController] = useState(false);
-  const freezeHandler = (freeze) => {
-    if(freeze)
-    {
-    overlay.current.classList.remove("hidden");
-    mainContainerWrapper.current.classList.add("no-scroll");
+  // State to find user focus the searchbar or not
+  const [searchDropdown, searchDropdownController] = useState(false);
+
+  // UseEffect for First Render
+  useEffect(() => {
+    // Add Autofocus to the root container after page rendering
+    mainContainerWrapper.current.focus();
+  }, []);
+  // UseEffect for each Render
+  useEffect(() => {
+    // Autofocus to root container if the user close the search bar
+    if (!searchDropdown) {
+      mainContainerWrapper.current.focus();
     }
-    else
-    {
-      overlay.current.classList.add("hidden");
-      // if(mainContainerWrapper.current.classList.contains("no-scroll"))
-      // {
-      mainContainerWrapper.current.classList.remove("no-scroll");
-      // }
+  });
+  // Keyboard event
+  const keyDownHandler = (e) => {
+    // Oper Searchbar
+    if (e.key == "/") {
+      if (!searchDropdown) e.preventDefault();
+      searchDropdownController(true);
+    }
+    // Close Searchbar
+    if (e.key == "Escape") {
+      searchDropdownController(false);
     }
   };
-  
- const temp1 = {
+
+  const temp1 = {
     beat: "4/4",
     title: "இல்லாமல் செய்வேன் என்று சொன்னோர் முன்",
     pallavi: `இல்லாமல் செய்வேன் என்று சொன்னோர் முன்
@@ -63,35 +74,42 @@ const App = () => {
     chord: "C maj",
   };
 
-    return (
-      <div ref={mainContainerWrapper} className="main-container-wrapper">
-        <TopBar freezeHandler={freezeHandler} />
-        <div className="main-container">
-          <ListItem data={temp1} />
-          <ListItem data={temp2} />
-          <ListItem data={temp3} />
-          <ListItem data={temp4} />
-          <ListItem data={temp1} />
-          <ListItem data={temp2} />
-          <ListItem data={temp3} />
-          <ListItem data={temp4} />
-          <ListItem data={temp1} />
-          <ListItem data={temp2} />
-          <ListItem data={temp3} />
-          <ListItem data={temp4} />
-          <ListItem data={temp1} />
-          <ListItem data={temp2} />
-          <ListItem data={temp3} />
-          <ListItem data={temp4} />
-          <ListItem data={temp1} />
-          <ListItem data={temp2} />
-          <ListItem data={temp3} />
-          <ListItem data={temp4} />
-        </div>
-        <div ref={overlay} className="hidden" id="overlay"></div>
+  return (
+    <div
+      tabIndex="0"
+      ref={mainContainerWrapper}
+      className={`main-container-wrapper ${!searchDropdown ? "" : "no-scroll"}`}
+      onKeyDown={keyDownHandler}
+    >
+      <TopBar
+        searchDropdown={searchDropdown}
+        searchDropdownController={searchDropdownController}
+      />
+      <div className="main-container">
+        <ListItem data={temp1} />
+        <ListItem data={temp2} />
+        <ListItem data={temp3} />
+        <ListItem data={temp4} />
+        <ListItem data={temp1} />
+        <ListItem data={temp2} />
+        <ListItem data={temp3} />
+        <ListItem data={temp4} />
+        <ListItem data={temp1} />
+        <ListItem data={temp2} />
+        <ListItem data={temp3} />
+        <ListItem data={temp4} />
+        <ListItem data={temp1} />
+        <ListItem data={temp2} />
+        <ListItem data={temp3} />
+        <ListItem data={temp4} />
+        <ListItem data={temp1} />
+        <ListItem data={temp2} />
+        <ListItem data={temp3} />
+        <ListItem data={temp4} />
       </div>
-    );
-  }
-
+      <div className={!searchDropdown ? "hidden" : ""} id="overlay"></div>
+    </div>
+  );
+};
 
 export default App;
