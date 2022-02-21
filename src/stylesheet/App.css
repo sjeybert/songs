@@ -2,14 +2,14 @@ body {
   margin: 0;
   padding: 0;
 }
-.tamil-font
-{
-  font-family: 'Mukta Malar', sans-serif;
+.tamil-font {
+  font-family: "Mukta Malar", sans-serif;
 }
 * {
   box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
-.main-container-wrapper{
+.main-container-wrapper {
   position: relative;
   outline: none;
 }
@@ -18,8 +18,10 @@ body {
   gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 60px;
-  
+}
+.main-container,
+.add-form-container {
+  margin-top: 50px;
 }
 #overlay {
   position: fixed;
@@ -38,24 +40,22 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: transparent; 
+  background: transparent;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: transparent; 
+  background: transparent;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: transparent; 
+  background: transparent;
 }
-.hidden{
+.hidden {
   display: none !important;
 }
-.no-scroll
-{
+.no-scroll {
   overflow: hidden;
   position: fixed;
-  
 }

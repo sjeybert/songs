@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import ListItem from "./ListItem";
 import TopBar from "./TopBar";
+import AddSong from "./AddSong";
 import "../stylesheet/App.css";
 
 const App = () => {
@@ -85,7 +86,7 @@ const App = () => {
         searchDropdown={searchDropdown}
         searchDropdownController={searchDropdownController}
       />
-      <div className="main-container">
+      <div className="main-container hidden">
         <ListItem data={temp1} />
         <ListItem data={temp2} />
         <ListItem data={temp3} />
@@ -106,6 +107,10 @@ const App = () => {
         <ListItem data={temp2} />
         <ListItem data={temp3} />
         <ListItem data={temp4} />
+      </div>
+
+      <div className="add-form-container">
+        <AddSong />
       </div>
       <div className={!searchDropdown ? "hidden" : ""} id="overlay"></div>
     </div>

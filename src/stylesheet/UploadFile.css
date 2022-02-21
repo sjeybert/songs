@@ -1,0 +1,37 @@
+.UploadFile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 200px;
+}
+.UploadFile .label {
+  font-size: 12px;
+}
+.UploadFile .file-upload-flex {
+  border: solid 1px #ddd;
+  border-radius: 10px;
+  height: 150px;
+}
+.UploadFile img {
+  width: 40px;
+  height: 40px;
+}
+.UploadFile .upload-file-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px;
+  border: dashed 1px #bdbdbd;
+  justify-content: end;
+  height: 120px;
+  padding: 20px;
+}
+.UploadFile .upload-text {
+  margin: 0;
+  font-weight: 100;
+  color: #9e9e9e;
+}
+.UploadFile .label-container {
+  display: flex;
+  gap: 2px;
+}
