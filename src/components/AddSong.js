@@ -2,20 +2,26 @@ import React, { useState, useEffect } from "react";
 import SingleLine from "./SingleLine";
 import UploadFile from "./UploadFile";
 import MultiLine from "./MultiLine";
+import ImageRadio from "./ImageRadio";
 import "../stylesheet/AddSong.css";
 
-const AddSong = () => {
+const AddSong = (props) => {
+  const [preview, previewController] = useState(props.settings.images[0]);
+
   const [loadLyricsForm, loadLyricsFormController] = useState(false);
   const [data, dataController] = useState({
     count: 3,
   });
-
+  let imagess = props.settings.images.map((data) => (
+    <ImageRadio data={data} clickHandler={previewController} />
+  ));
+  console.log("IMG", imagess);
   const formFieldRender = () => {
     const renderHtml = [];
     for (let i = 0; i < data.count; i++) {
       renderHtml.push(<MultiLine />);
     }
-    console.log(renderHtml);
+
     return renderHtml;
   };
   return (
@@ -49,24 +55,44 @@ const AddSong = () => {
             </div>
           </div>
         </div>
-        <div className="row-3">
-          <UploadFile />
-        </div>
+        <div className="row-3">{/* <UploadFile /> */}</div>
         <div className="row-4">
           <SingleLine />
           <SingleLine />
         </div>
       </div>
       <div className="preview-panel">
-        <div className="preview-header">Live Preview</div>
-        <div className="preview">
-          இல்லாமல் செய்வேன் என்று சொன்னோர் முன் இடம் கொள்ளாமல் பெருகச்செய்யும்
-          தேவன் நேராகும் வாய்ப்பில்லா உன் வாழ்வை சீராக மாற்றிட
+        <div className="preview-header-wrapper">
+          <div className="preview-header">Live Preview</div>
+          <div
+            className="preview"
+            style={{
+              backgroundImage: `url(${preview.thumbnail})`,
+              color: preview["font-color"],
+            }}
+          >
+            இல்லாமல் செய்வேன் என்று சொன்னோர் முன் இடம் கொள்ளாமல் பெருகச்செய்யும்
+            தேவன் நேராகும் வாய்ப்பில்லா உன் வாழ்வை சீராக மாற்றிட
+          </div>
+        </div>
+        <div className="background-image-section">
+          <div className="background-title">Background Image</div>
+          <div className="background-images">{imagess}</div>
         </div>
       </div>
       <div className="footer">
-        <button className="button add-button">Add</button>
-        <button className="button cancel-button">Cancel</button>
+        <button
+          className="button add-button"
+          onClick={() => props.showFormController(false)}
+        >
+          Add
+        </button>
+        <button
+          className="button cancel-button"
+          onClick={() => props.showFormController(false)}
+        >
+          Cancel
+        </button>
       </div>
     </div>
   );

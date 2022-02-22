@@ -3,8 +3,39 @@ import ListItem from "./ListItem";
 import TopBar from "./TopBar";
 import AddSong from "./AddSong";
 import "../stylesheet/App.css";
+import smallBlack from "../assets/images/background/black-small.jpg";
+import smallWhite from "../assets/images/background/white-small.jpg";
+import smallCloud from "../assets/images/background/cloud-small.jpg";
+import smallLeaf from "../assets/images/background/leaf-small.jpg";
 
 const App = () => {
+  const [settings, settingsController] = useState({
+    images: [
+      {
+        thumbnail: smallBlack,
+        "font-color": "#e3f2fd",
+        default: true,
+      },
+      {
+        thumbnail: smallLeaf,
+        "font-color": "#263238",
+        default: true,
+      },
+      {
+        thumbnail: smallWhite,
+        "font-color": "#1f2c57",
+        default: false,
+      },
+      {
+        thumbnail: smallCloud,
+        "font-color": "#253237",
+        default: false,
+      },
+    ],
+  });
+
+  const [showForm, showFormController] = useState(false);
+
   // Root Container -> To Add Autofocus after page rendering
   const mainContainerWrapper = useRef();
   // State to find user focus the searchbar or not
@@ -85,8 +116,9 @@ const App = () => {
       <TopBar
         searchDropdown={searchDropdown}
         searchDropdownController={searchDropdownController}
+        showFormController={showFormController}
       />
-      <div className="main-container hidden">
+      <div className={`main-container ${showForm ? "hidden" : ""} `}>
         <ListItem data={temp1} />
         <ListItem data={temp2} />
         <ListItem data={temp3} />
@@ -109,8 +141,8 @@ const App = () => {
         <ListItem data={temp4} />
       </div>
 
-      <div className="add-form-container">
-        <AddSong />
+      <div className={`add-form-container ${showForm ? "" : "hidden"} `}>
+        <AddSong settings={settings} showFormController={showFormController} />
       </div>
       <div className={!searchDropdown ? "hidden" : ""} id="overlay"></div>
     </div>

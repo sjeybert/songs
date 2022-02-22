@@ -1,3 +1,8 @@
+.add-form-container {
+  margin-top: 50px;
+  height: calc(100vh - 50px);
+  overflow: hidden;
+}
 .AddSong {
   display: flex;
   justify-content: space-around;
@@ -5,7 +10,7 @@
 }
 .AddSong .form-wrapper {
   width: 70%;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 105px);
   padding: 25px;
   overflow: scroll;
 }
@@ -22,9 +27,10 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 30%;
+  width: 20%;
   border-left: solid 1px #ddd;
   padding: 20px;
+  height: calc(100vh - 105px);
 }
 .AddSong .row-2 {
   display: flex;
@@ -109,4 +115,31 @@
   background: #253237;
   color: #fff;
   padding: 10px;
+}
+.AddSong .preview .preview-header-wrapper {
+  height: 25%;
+}
+.AddSong .background-image-section {
+  display: flex;
+  flex-direction: column;
+  height: 75%;
+}
+
+.AddSong .background-title {
+  margin: auto;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: solid 1px #ddd;
+  gap: 10px;
+}
+.AddSong .background-images {
+  margin-top: 20px;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+  height: 100%;
+  overflow: scroll;
 }

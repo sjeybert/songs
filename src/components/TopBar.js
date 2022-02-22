@@ -16,7 +16,7 @@ const TopBar = (props) => {
       />
       <div className="col-3">
         <div>
-          <img src={add} />
+          <img src={add} onClick={() => props.showFormController(true)} />
         </div>
         <Profile />
       </div>

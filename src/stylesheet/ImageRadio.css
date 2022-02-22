@@ -1,0 +1,15 @@
+.ImageRadio .hide-radio-button {
+  visibility: hidden;
+}
+.ImageRadio label img {
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+}
+.ImageRadio label [type="radio"]:checked + img {
+  width: 200px;
+  height: 200px;
+  transition: 0.25s;
+  border: solid 2px #e0f2f1;
+  border-radius: 10px;
+}
