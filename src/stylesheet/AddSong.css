@@ -1,6 +1,6 @@
 .add-form-container {
   margin-top: 50px;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 105px);
   overflow: hidden;
 }
 .AddSong {
@@ -9,7 +9,7 @@
   margin-bottom: 120px;
 }
 .AddSong .form-wrapper {
-  width: 70%;
+  width: 60%;
   height: calc(100vh - 105px);
   padding: 25px;
   overflow: scroll;
@@ -18,6 +18,9 @@
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 20px;
+} 
+.AddSong .row{
+  margin-bottom: 10px;
 }
 .AddSong .row-1 {
   display: flex;
@@ -53,7 +56,7 @@
 .AddSong .label-2 {
   border: solid 1px #ddd;
   padding: 10px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 300;
   color: #757575;
 }
@@ -78,7 +81,7 @@
   justify-content: center;
   align-items: center;
   color: #388e3c;
-
+  font-size: 12px;
   border: dashed 1px green;
   height: 50px;
 }

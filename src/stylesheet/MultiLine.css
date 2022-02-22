@@ -9,7 +9,7 @@
 .multi-line-wrapper .multi-line {
   border: solid 1px #ddd;
   padding: 10px;
-  font-size: 14px;
+  font-size: 12px;
   outline: none;
   border-radius: 5px;
   width: 100%;
@@ -23,8 +23,8 @@
   flex-direction: column;
 }
 .multi-line-wrapper img {
-  width: 25px;
-  height: 25px;
+  width: 10px;
+  height: 10px;
 }
 .multi-line-wrapper .label-container {
   align-self: center;

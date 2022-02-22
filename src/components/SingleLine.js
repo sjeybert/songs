@@ -1,19 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
+
 import "../stylesheet/SingleLine.css";
 
-const SingleLine = () => {
+const SingleLine = (props) => {
+  const [value, valueController] = useState("");
+  const [properties, propertiesController] = useState({
+    mandatory: props.mandatory,
+  });
   return (
     <div className="single-line-wrapper">
       <div className="label-container">
-        <label htmlFor="inp">Song Title</label>
-        <span className="mandatory">*</span>
+        <label htmlFor={props.name}>{props.labelName}</label>
+        <span className={`mandatory ${!properties.mandatory ? "hidden" : ""}`}>
+          *
+        </span>
       </div>
       <input
         className="single-line"
-        id="inp"
+        id={props.name}
         type="text"
-        placeholder="Search Songs..."
+        placeholder={props.placeholder}
+        name={props.name}
+        value={value}
+        onChange={(e) => {
+          valueController(e.target.value);
+          props.formDataController({
+            ...props.formData,
+            [props.name]: e.target.value,
+          });
+        }}
       />
+      <p
+        className={`error-message ${
+          !props.inputError.includes(props.name) ? "hide" : ""
+        }`}
+      >
+        {props.labelName} should not be Empty!
+      </p>
     </div>
   );
 };

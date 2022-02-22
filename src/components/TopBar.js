@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../stylesheet/TopBar.css";
 import logo from "../assets/images/logo.png";
 import SearchBar from "./SearchBar";
@@ -16,7 +17,9 @@ const TopBar = (props) => {
       />
       <div className="col-3">
         <div>
-          <img src={add} onClick={() => props.showFormController(true)} />
+          <Link to="/add">
+            <img src={add} />
+          </Link>
         </div>
         <Profile />
       </div>

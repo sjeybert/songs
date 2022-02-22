@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Song from "../assets/images/song.png";
 import "../stylesheet/MultiLine.css";
 
-const MultiLine = () => {
+const MultiLine = (props) => {
+  const [value, valueController] = useState("");
   return (
     <div className="multi-line-wrapper">
       <div className="label-container">
@@ -10,9 +11,17 @@ const MultiLine = () => {
       </div>
       <textarea
         className="multi-line"
-        id="inp"
+        id={props.name}
         type="text"
-        placeholder="Search Songs..."
+        placeholder={props.placeholder}
+        value={value}
+        onChange={(e) => {
+          valueController(e.target.value);
+          props.formDataController({
+            ...props.formData,
+            [props.name]: e.target.value,
+          });
+        }}
       />
     </div>
   );
