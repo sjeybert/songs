@@ -8,12 +8,15 @@ import "../stylesheet/AddSong.css";
 import { addData } from "../api/api";
 
 const AddSong = (props) => {
+  useEffect(() => {
+    props.isAddFormController(true);
+    return () => props.isAddFormController(false);
+  }, []);
   const [inputError, inputErrorController] = useState([]);
   const uploadData = () => {
     let formInput = {};
     let invalidFields = [];
     if (formData != null) {
-      console.log("DATA", formData);
       if ("title_default_lang" in formData) {
         formInput["title_default_lang"] = formData["title_default_lang"];
         formInput["language"] = "Tamil";
@@ -36,9 +39,11 @@ const AddSong = (props) => {
     }
     console.log("payload", formInput);
 
-    inputErrorController(invalidFields);
-
-    addData(formInput);
+    if (invalidFields.length == 0) {
+      addData(formInput);
+    } else {
+      inputErrorController(invalidFields);
+    }
   };
 
   const [preview, previewController] = useState(

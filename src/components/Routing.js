@@ -13,6 +13,8 @@ const Routing = () => {
   // State to find user focus the searchbar or not
   const [searchDropdown, searchDropdownController] = useState(false);
 
+  const [isAddForm, isAddFormController] = useState(false);
+
   const [settings, settingsController] = useState({
     images: [
       {
@@ -77,10 +79,19 @@ const Routing = () => {
         <TopBar
           searchDropdown={searchDropdown}
           searchDropdownController={searchDropdownController}
+          isAddForm={isAddForm}
         />
         <Routes>
           <Route path="/" element={<SongList />} />
-          <Route path="/add" element={<AddSong settings={settings} />} />
+          <Route
+            path="/add"
+            element={
+              <AddSong
+                settings={settings}
+                isAddFormController={isAddFormController}
+              />
+            }
+          />
         </Routes>
 
         <div className={!searchDropdown ? "hidden" : ""} id="overlay"></div>

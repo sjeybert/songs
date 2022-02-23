@@ -16,7 +16,7 @@ const TopBar = (props) => {
         searchDropdownController={props.searchDropdownController}
       />
       <div className="col-3">
-        <div>
+        <div className={`${props.isAddForm ? "hidden" : ""}`}>
           <Link to="/add">
             <img src={add} />
           </Link>
