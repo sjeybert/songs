@@ -1,9 +1,8 @@
 .multi-line-wrapper {
   display: flex;
-
   justify-content: space-around;
+  flex-direction: column;
   width: 100%;
-
   gap: 10px;
 }
 .multi-line-wrapper .multi-line {
@@ -26,6 +25,17 @@
   width: 10px;
   height: 10px;
 }
+.multi-line-wrapper .field-wrapper {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
 .multi-line-wrapper .label-container {
   align-self: center;
+}
+.multi-line-wrapper p.error-message {
+  margin: 0;
+  font-size: 10px;
+  color: #b71c1c;
+  padding-left: 20px;
 }

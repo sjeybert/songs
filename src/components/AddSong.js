@@ -14,15 +14,23 @@ const AddSong = (props) => {
     let invalidFields = [];
     if (formData != null) {
       console.log("DATA", formData);
-      if ("title-default-lang" in formData) {
-        formInput["title-default-lang"] = formData["title-default-lang"];
+      if ("title_default_lang" in formData) {
+        formInput["title_default_lang"] = formData["title_default_lang"];
+        formInput["language"] = "Tamil";
       } else {
-        invalidFields.push("title-default-lang");
+        invalidFields.push("title_default_lang");
       }
-      if ("title-english" in formData) {
-        formInput["title-english"] = formData["title-english"];
+      if ("english_title" in formData) {
+        formInput["english_title"] = formData["english_title"];
       } else {
-        invalidFields.push("title-english");
+        invalidFields.push("english_title");
+      }
+      if (!"pallavi" in formData) {
+        invalidFields.push("pallavi");
+      }
+
+      if (!"saranam-1" in formData) {
+        invalidFields.push("saranam-1");
       }
       formInput.data = formData;
     }
@@ -30,22 +38,30 @@ const AddSong = (props) => {
 
     inputErrorController(invalidFields);
 
-    // addData();
+    addData(formInput);
   };
-  const [preview, previewController] = useState(props.settings.images[0]);
+
+  const [preview, previewController] = useState(
+    props.settings.images.find((img) => img.default == true)
+  );
+
   const [formData, formDataController] = useState({});
 
   const [loadLyricsForm, loadLyricsFormController] = useState(false);
   const [data, dataController] = useState({
     count: 3,
   });
-  let imagess = props.settings.images.map((data) => (
-    <ImageRadio data={data} clickHandler={previewController} />
+  let imagess = props.settings.images.map((data, index) => (
+    <ImageRadio key={index} data={data} clickHandler={previewController} />
   ));
-  const addLyricsView = useRef();
+  const scrollView = useRef();
+  const TEST = useRef();
   useEffect(() => {
-    console.log(formData);
-  });
+    scrollView.current.scrollIntoView(false);
+  }, [data]);
+  useEffect(() => {
+    console.log(props.settings.images.find((img) => img.default == true));
+  }, []);
   const formFieldRender = () => {
     const renderHtml = [];
     let placeholder;
@@ -63,13 +79,14 @@ const AddSong = (props) => {
       }
       renderHtml.push(
         <MultiLine
-          ref={data.count - 1 == i ? addLyricsView : null}
+          key={name}
           placeholder={placeholder}
-          mandatory={true}
+          mandatory={i == 0 || i == 2 ? true : false}
           name={name}
           formDataController={formDataController}
           formData={formData}
           inputError={inputError}
+          labelName={placeholder}
         />
       );
     }
@@ -86,7 +103,7 @@ const AddSong = (props) => {
               labelName="Song Title In Tamil"
               placeholder="Add your Song title here.."
               mandatory={true}
-              name="title-default-lang"
+              name="title_default_lang"
               formDataController={formDataController}
               formData={formData}
               inputError={inputError}
@@ -95,7 +112,7 @@ const AddSong = (props) => {
               labelName="Song Title In English"
               placeholder="Add your Song title here.."
               mandatory={true}
-              name="title-english"
+              name="english_title"
               formDataController={formDataController}
               formData={formData}
               inputError={inputError}
@@ -113,18 +130,32 @@ const AddSong = (props) => {
               Add song lyrics here
             </div>
             <div className={loadLyricsForm ? "loadLyricsForm" : "hidden"}>
-              <div className="text-area">{formFieldRender()}</div>
+              <div ref={TEST} className="text-area">
+                {formFieldRender()}
+                <div ref={scrollView} className="scroll-into-view"></div>
+              </div>
 
               <div
-                className="add-button"
+                className={`add-button ${data.count > 8 ? "hide" : ""}`}
                 onClick={() => {
-                  console.log(addLyricsView);
                   dataController({ count: data.count + 1 });
                 }}
               >
                 <span>Add New Stanza</span>
               </div>
             </div>
+            <p
+              className={`error-message ${
+                loadLyricsForm ||
+                (!loadLyricsForm &&
+                  !inputError.includes("pallavi") &&
+                  !inputError.includes("saranam"))
+                  ? "hide"
+                  : ""
+              }`}
+            >
+              Song Lyrics should not be Empty!
+            </p>
           </div>
           <div className="row row-3">{/* <UploadFile /> */}</div>
           <div className="row row-4">

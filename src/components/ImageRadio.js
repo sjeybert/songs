@@ -8,9 +8,8 @@ const ImageRadio = (props) => {
         <input
           className="hide-radio-button"
           type="radio"
-          name="test"
-          value="small"
-          checked
+          name="background-image"
+          value={props.data.thumbnail}
         />
         <img src={props.data.thumbnail} />
       </label>
