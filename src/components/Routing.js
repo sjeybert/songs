@@ -3,11 +3,13 @@ import TopBar from "./TopBar";
 import SongList from "./SongList";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import AddSong from "./AddSong";
+
 import "../stylesheet/Routing.css";
 import smallBlack from "../assets/images/background/black-small.jpg";
 import smallWhite from "../assets/images/background/white-small.jpg";
 import smallCloud from "../assets/images/background/cloud-small.jpg";
 import smallLeaf from "../assets/images/background/leaf-small.jpg";
+import View from "./View";
 
 const Routing = () => {
   // State to find user focus the searchbar or not
@@ -92,6 +94,7 @@ const Routing = () => {
               />
             }
           />
+          <Route path="/view/:id" element={<View />}></Route>
         </Routes>
 
         <div className={!searchDropdown ? "hidden" : ""} id="overlay"></div>

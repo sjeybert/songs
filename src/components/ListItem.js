@@ -2,13 +2,17 @@ import React from "react";
 import "../stylesheet/ListItem.css";
 import NonFavourite from "../assets/images/heart.png";
 import sad from "../assets/images/sad.png";
+import { useNavigate } from "react-router-dom";
 
 const ListItem = (props) => {
-  // console.log("From LISTITEM", props.data, props.data.Data);
-  // console.log("**", props.data, JSON.parse(JSON.stringify(props.data.Data)));
-  // let a = JSON.parse(props.data);
+  const navigate = useNavigate();
   return (
-    <div className="list-item-wrapper">
+    <div
+      className="list-item-wrapper"
+      onClick={() => {
+        navigate(`/view/${props.data.ID}`);
+      }}
+    >
       <div className="row-1 tamil-font">
         <div className="title">{props.data.Title}</div>
       </div>

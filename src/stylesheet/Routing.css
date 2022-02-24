@@ -11,6 +11,7 @@ body {
 }
 .main-container-wrapper {
   position: relative;
+  margin-top: 50px;
   outline: none;
 }
 .main-container {
@@ -20,10 +21,6 @@ body {
   gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
-}
-.main-container,
-.add-form-container {
-  margin-top: 50px;
 }
 #overlay {
   position: fixed;

@@ -14,6 +14,7 @@ const AddSong = (props) => {
   }, []);
   const [inputError, inputErrorController] = useState([]);
   const uploadData = () => {
+    let form_keys = [];
     let formInput = {};
     let invalidFields = [];
     if (formData != null) {
@@ -34,7 +35,6 @@ const AddSong = (props) => {
 
       formInput.data = formData;
     }
-    console.log("payload", formInput);
 
     if (invalidFields.length == 0) {
       addData(formInput);
@@ -73,8 +73,8 @@ const AddSong = (props) => {
         placeholder = "Pallavi";
         name = "pallavi";
       } else if (i == 1) {
-        placeholder = "Anu_pallavi";
-        name = "anu-pallavi";
+        placeholder = "Anu pallavi";
+        name = "anu_pallavi";
       } else {
         placeholder = "Saranam";
         name = `saranam_${i - 1}`;

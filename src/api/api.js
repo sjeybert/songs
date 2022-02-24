@@ -25,29 +25,47 @@ export const getAllData = (songLyricsController) => {
   )
     .then((response) => response.json())
     .then((lyrics_data) => {
-      console.log("lyrics_data", lyrics_data);
-      lyrics_data.forEach((element) => {
-        let lyrics_data = {};
-        for (let key in element) {
-          if (key === "Data") {
-            // console.log("json", element[key], typeof element[key]);
-            // console.log(JSON.parse(element[key]));
-            // console.log("SONF", element[key], typeof element[key]);
-            // const obj = JSON.parse(element.key);
-            // console.log("OBJ", obj);
-            // console.log(typeof element[key]);
-            let a = JSON.stringify(element[key]);
-            console.log(JSON.parse(a));
-            lyrics_data[key] = element[key];
-          } else {
-            lyrics_data[key] = element[key];
-          }
-        }
-        if (lyrics_data) {
-          resp.push(lyrics_data);
-        }
-      });
-      songLyricsController(resp);
+      // lyrics_data.forEach((element) => {
+      //   let lyrics_data = {};
+      //   for (let key in element) {
+      //     if (key === "Data") {
+      //       console.log(JSON.parse(element[key]));
+      //       lyrics_data[key] = element[key];
+      //     } else {
+      //       lyrics_data[key] = element[key];
+      //     }
+      //   }
+      //   if (lyrics_data) {
+      //     resp.push(lyrics_data);
+      //   }
+      // });
+      songLyricsController(lyrics_data);
+    });
+  // .catch((e) => console.log(e));
+};
+
+export const getDataByID = (id, currentSongController) => {
+  let resp = [];
+  fetch(
+    `https://tamilchristiansongbook.easifyer.com/database/get/get_lyrics_by_id.php?id=${id}`
+  )
+    .then((response) => response.json())
+    .then((lyrics_data) => {
+      // lyrics_data.forEach((element) => {
+      //   let lyrics_data = {};
+      //   for (let key in element) {
+      //     if (key === "Data") {
+      //       console.log(JSON.parse(element[key]));
+      //       lyrics_data[key] = element[key];
+      //     } else {
+      //       lyrics_data[key] = element[key];
+      //     }
+      //   }
+      //   if (lyrics_data) {
+      //     resp.push(lyrics_data);
+      //   }
+      // });
+      currentSongController(lyrics_data);
     });
   // .catch((e) => console.log(e));
 };
