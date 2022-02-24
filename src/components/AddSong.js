@@ -32,9 +32,6 @@ const AddSong = (props) => {
         invalidFields.push("pallavi");
       }
 
-      if (!"saranam-1" in formData) {
-        invalidFields.push("saranam-1");
-      }
       formInput.data = formData;
     }
     console.log("payload", formInput);
@@ -76,11 +73,11 @@ const AddSong = (props) => {
         placeholder = "Pallavi";
         name = "pallavi";
       } else if (i == 1) {
-        placeholder = "Anu-pallavi";
+        placeholder = "Anu_pallavi";
         name = "anu-pallavi";
       } else {
         placeholder = "Saranam";
-        name = `saranam-${i - 1}`;
+        name = `saranam_${i - 1}`;
       }
       renderHtml.push(
         <MultiLine

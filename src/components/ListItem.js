@@ -4,7 +4,9 @@ import NonFavourite from "../assets/images/heart.png";
 import sad from "../assets/images/sad.png";
 
 const ListItem = (props) => {
-  console.log("From LISTITEM", props.data);
+  // console.log("From LISTITEM", props.data, props.data.Data);
+  // console.log("**", props.data, JSON.parse(JSON.stringify(props.data.Data)));
+  // let a = JSON.parse(props.data);
   return (
     <div className="list-item-wrapper">
       <div className="row-1 tamil-font">

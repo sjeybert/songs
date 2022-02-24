@@ -6,10 +6,11 @@
   border-radius: 10px;
   padding: 5px;
   width: 275px;
+  max-height: 225px;
 }
 .list-item-wrapper .title {
   font-size: 14px;
-    line-height: 125%;
+  line-height: 125%;
   font-weight: 600;
   text-align: center;
   color: #bf360c;
@@ -18,7 +19,7 @@
   text-align: center;
   font-size: 12px;
   color: #263238;
-  margin: 5PX;
+  margin: 5px;
   padding: 5px;
   line-height: 130%;
 }

@@ -4,14 +4,15 @@ import ListItem from "./ListItem";
 
 const SongList = () => {
   let [songLyrics, songLyricsController] = useState([]);
-  useEffect(
-    () => getAllData().then((data) => songLyricsController(JSON.parse(data))),
-    []
-  );
-  console.log(typeof songLyrics, songLyrics);
-  const lyricsListItem = songLyrics.map((lyrics) => <ListItem data={lyrics} />);
 
-  return <div className="main-container">{lyricsListItem}</div>;
+  useEffect(() => {
+    getAllData(songLyricsController);
+  }, []);
+
+  // const lyricsListItem = songLyrics.map((lyrics) => <ListItem data={lyrics} />);
+
+  // return <div className="main-container">{lyricsListItem}</div>;
+  return <div>hello</div>;
 };
 
 export default SongList;
