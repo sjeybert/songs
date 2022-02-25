@@ -1,0 +1,36 @@
+.bg_image_container {
+    position: relative;
+    border: solid 1px #ddd;
+    max-width: 350px;
+    height: 100vh;
+}
+.bg_image_container .editor {
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    height: 100vh;
+   
+}
+.bg_image_container .footer {
+    position: absolute;
+    bottom: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.bg_image_container button.button {
+    width: 100px;
+    height: 30px;
+    border: none;
+    outline: none;
+  }
+  .bg_image_container button.button.add-button {
+    background: #4caf50;
+    color: #fff;
+  }
+  .bg_image_container button.button.cancel-button {
+    border: solid 1px #ddd;
+    background: white;
+  }

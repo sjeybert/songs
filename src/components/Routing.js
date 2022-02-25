@@ -11,6 +11,8 @@ import smallCloud from "../assets/images/background/cloud-small.jpg";
 import smallLeaf from "../assets/images/background/leaf-small.jpg";
 import View from "./View";
 
+import Test from "./Test";
+
 const Routing = () => {
   // State to find user focus the searchbar or not
   const [searchDropdown, searchDropdownController] = useState(false);
@@ -95,6 +97,7 @@ const Routing = () => {
             }
           />
           <Route path="/view/:id" element={<View />}></Route>
+          <Route path="test" element={<Test />} />
         </Routes>
 
         <div className={!searchDropdown ? "hidden" : ""} id="overlay"></div>

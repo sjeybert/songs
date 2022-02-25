@@ -1,4 +1,34 @@
 .View
 {
     white-space: pre-line ;
+    width: 100%;
+    height: 100vh;
 }
+.View .loader
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     width: 100%;
+    height: 100vh;
+}
+.View .lyrics_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    padding: 5%;
+
+}
+.lyrics_container {
+    font-size: 70px;
+    font-weight: 800;
+    line-height: 1.5;
+    width: 100%;
+    text-align: center;
+}
+:fullscreen {
+    background-color: yellow;
+    overflow: scroll;
+  }

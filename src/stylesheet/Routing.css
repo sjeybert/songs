@@ -3,7 +3,7 @@ body {
   padding: 0;
 }
 .tamil-font {
-  font-family: "Mukta Malar", sans-serif;
+  font-family: "Mukta Malar", sans-serif !important;
 }
 * {
   box-sizing: border-box;
@@ -13,6 +13,8 @@ body {
   position: relative;
   margin-top: 50px;
   outline: none;
+  height: calc(100vh - 50px);
+    overflow: hidden;
 }
 .main-container {
   display: flex;
