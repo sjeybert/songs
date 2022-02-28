@@ -9,7 +9,6 @@ import smallBlack from "../assets/images/background/black-small.jpg";
 import smallWhite from "../assets/images/background/white-small.jpg";
 import smallCloud from "../assets/images/background/cloud-small.jpg";
 import smallLeaf from "../assets/images/background/leaf-small.jpg";
-import View from "./View";
 
 import Test from "./Test";
 
@@ -53,6 +52,7 @@ const Routing = () => {
   }, []);
   // UseEffect for each Render
   useEffect(() => {
+    console.log("routing rendering...");
     // Autofocus to root container if the user close the search bar
     if (!searchDropdown) {
       mainContainerWrapper.current.focus();
@@ -60,6 +60,7 @@ const Routing = () => {
   });
   // Keyboard event
   const keyDownHandler = (e) => {
+    console.log(e);
     // Oper Searchbar
     if (e.key == "/") {
       if (!searchDropdown) e.preventDefault();
@@ -68,6 +69,7 @@ const Routing = () => {
     // Close Searchbar
     if (e.key == "Escape") {
       searchDropdownController(false);
+      // isFullScreenController(false);
     }
   };
   return (
@@ -96,7 +98,7 @@ const Routing = () => {
               />
             }
           />
-          <Route path="/view/:id" element={<View />}></Route>
+          {/* <Route path="/view/:id" element={<View />}></Route> */}
           <Route path="test" element={<Test />} />
         </Routes>
 

@@ -10,11 +10,11 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 .main-container-wrapper {
-  position: relative;
-  margin-top: 50px;
+  /* position: relative; */
+  /* margin-top: 50px; */
   outline: none;
-  height: calc(100vh - 50px);
-    overflow: hidden;
+  height: 100vh;
+  overflow: hidden;
 }
 .main-container {
   display: flex;
@@ -23,6 +23,7 @@ body {
   gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
+  overflow: scroll;
 }
 #overlay {
   position: fixed;
@@ -60,6 +61,6 @@ body {
   overflow: hidden;
   position: fixed;
 }
-.hide{
+.hide {
   visibility: hidden;
 }

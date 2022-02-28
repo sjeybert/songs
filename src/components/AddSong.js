@@ -211,12 +211,12 @@ const AddSong = (props) => {
             <div className="background-images">{imagess}</div>
           </div>
         </div>
-        <div className="footer">
-          <button className="button add-button" onClick={uploadData}>
-            Add
-          </button>
-          <button className="button cancel-button">Cancel</button>
-        </div>
+      </div>
+      <div className="footer">
+        <button className="button add-button" onClick={uploadData}>
+          Add
+        </button>
+        <button className="button cancel-button">Cancel</button>
       </div>
     </div>
   );

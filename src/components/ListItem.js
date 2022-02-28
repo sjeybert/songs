@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useRef } from "react";
 import "../stylesheet/ListItem.css";
 import NonFavourite from "../assets/images/heart.png";
 import sad from "../assets/images/sad.png";
-import { useNavigate } from "react-router-dom";
 
 const ListItem = (props) => {
-  const navigate = useNavigate();
+  // console.log("data**", props.data);
+  const listRef = useRef();
+
   return (
     <div
+      ref={listRef}
       className="list-item-wrapper"
       onClick={() => {
-        navigate(`/view/${props.data.ID}`);
+        props.currentSongController(props.data);
+        props.fullScreenHandler();
       }}
     >
       <div className="row-1 tamil-font">

@@ -5,7 +5,6 @@
 .AddSong {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 120px;
 }
 .AddSong .form-wrapper {
   width: 60%;
@@ -88,9 +87,9 @@
   display: flex;
   gap: 50px;
 }
-.AddSong .footer {
-  position: fixed;
-  bottom: 0;
+.add-form-container .footer {
+  /* position: fixed;
+  bottom: 0; */
   display: flex;
   gap: 50px;
   width: 100%;
@@ -99,17 +98,17 @@
   background: white;
   z-index: 1;
 }
-.AddSong button.button {
+.add-form-container button.button {
   width: 100px;
   height: 30px;
   border: none;
   outline: none;
 }
-.AddSong button.button.add-button {
+.add-form-container button.button.add-button {
   background: #4caf50;
   color: #fff;
 }
-.AddSong button.button.cancel-button {
+.add-form-container button.button.cancel-button {
   border: solid 1px #ddd;
   background: white;
 }
