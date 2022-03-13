@@ -14,7 +14,6 @@ const AddSong = (props) => {
   }, []);
   const [inputError, inputErrorController] = useState([]);
   const uploadData = () => {
-    let form_keys = [];
     let formInput = {};
     let invalidFields = [];
     if (formData != null) {
@@ -57,7 +56,6 @@ const AddSong = (props) => {
     <ImageRadio key={index} data={data} clickHandler={previewController} />
   ));
   const scrollView = useRef();
-  const TEST = useRef();
   useEffect(() => {
     scrollView.current.scrollIntoView(false);
   }, [data]);
@@ -132,7 +130,7 @@ const AddSong = (props) => {
               Add song lyrics here
             </div>
             <div className={loadLyricsForm ? "loadLyricsForm" : "hidden"}>
-              <div ref={TEST} className="text-area">
+              <div className="text-area">
                 {formFieldRender()}
                 <div ref={scrollView} className="scroll-into-view"></div>
               </div>

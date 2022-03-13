@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 // import { useParams } from "react-router-dom";
 // import { getDataByID } from "../api/api";
 import "../stylesheet/View.css";
 
 const View = (props) => {
-  // const [currentSong, currentSongController] = useState(props.currentSong);
+  const goto = useRef([]);
+  console.log("GOTO", goto);
+  console.log("Loading View");
   const [songKey, songKeyController] = useState([]);
-  console.log("#View", "songkey", songKey);
-  console.log("#View", "**currentsong", props.currentSong);
 
   useEffect(() => {
     let tempKey = [];
@@ -24,7 +24,6 @@ const View = (props) => {
         tempKey.push(...saranam);
       }
       if (tempKey) {
-        console.log("temp", tempKey);
         songKeyController(...songKey, tempKey);
       }
     }
@@ -33,11 +32,17 @@ const View = (props) => {
     };
   }, []);
 
+  // const executeScroll = () => myRef.current.scrollIntoView();
   const renderLyrics = () => {
+    goto.current = [];
     let lyrics = [];
     if (songKey) {
       lyrics = songKey.map((key) => (
-        <div key={key} className={`lyrics_container ${key}`}>
+        <div
+          key={key}
+          ref={(element) => element && goto.current.push(element)}
+          className={`lyrics_container ${key}`}
+        >
           <div className="lyrics_data tamil-font">
             {props.currentSong.Data[key]}
           </div>
@@ -47,13 +52,39 @@ const View = (props) => {
     return lyrics;
   };
 
+  const gotoHandler = (index) => {
+    console.log(goto.current[index]);
+    goto.current[index].scrollIntoView({ behavior: "smooth" });
+  };
+  const renderNavigation = () => {
+    let navigationLinks = [];
+
+    if (songKey) {
+      navigationLinks = songKey.map((key, index) => {
+        let a = "";
+        // console.log(props.currentSong.Data[key].split(" ", 2).toString());
+        props.currentSong.Data[key].split(" ", 3).forEach((element) => {
+          a += element + " ";
+        });
+        return (
+          <div className={`goto ${key}`} onClick={() => gotoHandler(index)}>
+            {a}
+          </div>
+        );
+      });
+    }
+    // console.log(songKey, navigationLinks);
+    return navigationLinks;
+  };
+
   return (
     <div
       className="View"
-      onKeyDown={props.exitFullScreenHandler}
+
       //   style={{ backgroundImage: `url(${preview.thumbnail})` }}
     >
       <div className="lyrics_wrapper">{renderLyrics()}</div>
+      <div className="lyrics_guide">{renderNavigation()}</div>
     </div>
   );
 };

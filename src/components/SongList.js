@@ -9,9 +9,11 @@ const SongList = (props) => {
   const [isFullScreen, isFullScreenController] = useState(false);
   const view = useRef();
 
+  console.log("CS", currentSong);
   const fullScreenHandler = () => {
     view.current.requestFullscreen();
-    console.log(view);
+    isFullScreenController(true);
+    console.log("123", view);
   };
 
   const exitFullScreenHandler = (event) => {
@@ -21,11 +23,20 @@ const SongList = (props) => {
 
   useEffect(() => {
     console.log("#Song List", "Rendering...");
-    console.log("#Song List", "current song", currentSong);
+    view.current.onfullscreenchange = () => {
+      isFullScreenController(false);
+      if (!isFullScreen) {
+        console.log("Full screen changed");
+        currentSongController(null);
+      }
+    };
+    view.current.onkeydown = () => {
+      console.log("key down");
+    };
   });
 
   useEffect(() => {
-    console.log("#Song List", "All data rendered");
+    console.log("#Song List", "All data request");
     getAllData(songLyricsController);
   }, []);
 
@@ -45,7 +56,7 @@ const SongList = (props) => {
     >
       <div className="main-container">{lyricsListItem}</div>
       <div id="full_screen_container" ref={view}>
-        {currentSong ? <View currentSong={currentSong} /> : null}
+        {currentSong && <View currentSong={currentSong} />}
       </div>
     </div>
   );

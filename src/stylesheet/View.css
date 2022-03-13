@@ -1,8 +1,10 @@
 .View {
+  display: flex;
+  flex-direction: column;
   white-space: pre-line;
   width: 100%;
   height: 100vh;
-  overflow: scroll;
+  overflow: hidden;
 }
 .View .loader {
   display: flex;
@@ -18,15 +20,33 @@
   gap: 50px;
   width: 100%;
   padding: 5%;
+  height: 95%;
+  overflow: scroll;
 }
 .lyrics_container {
   font-size: 70px;
   font-weight: 800;
   line-height: 1.5;
   width: 100%;
+
   text-align: center;
 }
 :fullscreen {
   background-color: yellow;
-  overflow: scroll;
+  overflow: hidden;
+}
+.View .lyrics_guide {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 5%;
+  gap: 40px;
+  overflow-x: scroll;
+  align-items: center;
+  background: #fbe9e7;
+}
+.View .goto {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
 }

@@ -4,12 +4,8 @@ import NonFavourite from "../assets/images/heart.png";
 import sad from "../assets/images/sad.png";
 
 const ListItem = (props) => {
-  // console.log("data**", props.data);
-  const listRef = useRef();
-
   return (
     <div
-      ref={listRef}
       className="list-item-wrapper"
       onClick={() => {
         props.currentSongController(props.data);
